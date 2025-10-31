@@ -1,0 +1,14 @@
+services:
+  ersatztv:
+    container_name: ersatztv
+    image: ghcr.io/ersatztv/ersatztv
+    restart: unless-stopped
+    ports:
+      - 8409:8409
+    environment:
+      - TZ=Europe/Berlin
+    volumes:
+      - /mnt/.ix-apps/app_mounts/ersatztv/config:/config
+      - /mnt/Storage_2TB/main:/media:ro
+    devices:
+      - /dev/dri/renderD128:/dev/dri/renderD128
