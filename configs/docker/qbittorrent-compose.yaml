@@ -1,0 +1,33 @@
+services:
+  qbittorrent:
+    container_name: qbittorrent
+    image: ghcr.io/hotio/qbittorrent
+    restart: unless-stopped
+    ports:
+      - 30024:30024
+    environment:
+      - PUID=568
+      - PGID=568
+      - UMASK=002
+      - TZ=Europe/Berlin
+      - WEBUI_PORTS=30024/tcp,30024/udp
+      - VPN_ENABLED=true
+      - VPN_CONF=wg0
+      - VPN_PROVIDER=generic
+      - VPN_LAN_NETWORK=192.168.1.0/24
+      - VPN_LAN_LEAK_ENABLED=false
+      - VPN_EXPOSE_PORTS_ON_LAN=
+      - VPN_AUTO_PORT_FORWARD=true
+      - VPN_AUTO_PORT_FORWARD_TO_PORTS=
+      - VPN_FIREWALL_TYPE=auto
+      - VPN_HEALTHCHECK_ENABLED=false
+      - VPN_NAMESERVERS=wg
+      - PRIVOXY_ENABLED=false
+    cap_add:
+      - NET_ADMIN
+    sysctls:
+      - net.ipv4.conf.all.src_valid_mark=1
+      - net.ipv6.conf.all.disable_ipv6=1
+    volumes:
+      - /mnt/.ix-apps/app_mounts/qbittorrent/config:/config
+      - /mnt/Storage_2TB/main/downloads:/downloads
