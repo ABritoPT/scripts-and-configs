@@ -1,0 +1,1 @@
+C:\Windows\System32\shutdown.exe /s /m \\i5-andre /t 10

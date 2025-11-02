@@ -55,3 +55,11 @@ Season 1
     - `SUB_EXT`: Extension of the subtitle files (`srt` by default)
     - `SUB_LANG`: Desired language of the subtitle file (`eng` by default)
 - Requirements: `none`
+
+## Shutdown i5
+
+Remotely shuts down another computer on the network, specifically `i5-andre`.
+
+- Script file: `Shutdown i5.bat`
+- Parameters: `none`
+- Requirements: `none`
