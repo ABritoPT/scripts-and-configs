@@ -1,5 +1,11 @@
 # Windows Scripts
 
+Index:
+- [SSH Shortcut to TrueNAS](#ssh-shortcut-to-truenas)
+- [Subs Processor](#subs-processor)
+- [Shutdown i5](#shutdown-i5)
+- [Drive Dumps](#drive-dumps)
+
 ## SSH Shortcut to TrueNAS
 
 Simple script that SSH's into TrueNAS as root. The `lnk` file launches the script automatically in a PowerShell window.

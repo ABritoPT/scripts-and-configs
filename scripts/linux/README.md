@@ -1,5 +1,9 @@
 # Linux Scripts
 
+Index:
+- [Mount TrueNAS Main Share](#mount-truenas-main-share)
+- [Folders for Files](#folders-for-files)
+
 ## Mount TrueNAS Main Share
 
 Mounts `//192.168.1.200/main` to `/mnt/truenas_main` over SMB.
