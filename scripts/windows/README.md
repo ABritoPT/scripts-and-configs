@@ -63,3 +63,22 @@ Remotely shuts down another computer on the network, specifically `i5-andre`.
 - Script file: `Shutdown i5.bat`
 - Parameters: `none`
 - Requirements: `none`
+
+## Drive Dumps
+
+Saves the full path of every file and folder in the specified drive into a `.txt` file with the drive's letter, e.g. `D.txt` for drive `D:`. If the files exists, it will be overwritten.
+
+Main command: `dir /s /b /o:gn`
+
+- `/S` Displays files in specified directory and all subdirectories.
+- `/B` Uses bare format (no heading information or summary).
+- `/O` List by files in sorted order.
+- Then in `:gn`, `g` sorts by folders and then files, and `n` puts those files in alphabetical order.
+
+<!-- -->
+
+- Script file: `drive dumps.bat`
+- Parameters: `none`
+- Script settings: Drive letters (`D L S Z`)
+- Requirements: `none`
+- Output: `D.txt`, `L.txt`, `S.txt`, and `Z.txt`
