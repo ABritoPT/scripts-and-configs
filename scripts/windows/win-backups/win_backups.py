@@ -18,7 +18,3 @@ logger.debug("logger set")
 with open(TEST_JOB, 'r') as file:
     job = yaml.safe_load(file)
 # print(job)
-
-sc = Script("test","dir")
-# sc = Script("test","D:\André\_dumps\_run.bat","D:\André\_dumps")
-sc.run(dryRun)

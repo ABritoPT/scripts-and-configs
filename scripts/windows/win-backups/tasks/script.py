@@ -1,5 +1,6 @@
 import logging
 import subprocess
+import os
 
 class Script:
     def __init__(self, name, target, start_in=None, timing=None):
@@ -14,16 +15,20 @@ class Script:
 
         command = ""
         if self.start_in:
+            if not os.path.exists(self.start_in):
+                raise ValueError("Start in folder does not exist")
             command += "cd /d " + self.start_in + " & "
         command += self.target
         self.logger.debug("Command: " + command)
 
         if dryRun:
             self.logger.info("Dry run - no action taken")
+            return 0
         else:
             self.logger.info("executing " + command)
             res = subprocess.call(command, shell=True)
             self.logger.info("Success" if res == 0 else "Command failed")
+            return res
 
 # 2 ways to run commands:
 # os.system('start cmd /k "cd /d D:\\André\\_dumps & dir')
