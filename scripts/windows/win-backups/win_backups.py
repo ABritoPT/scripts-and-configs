@@ -3,6 +3,7 @@ import sys
 import yaml
 
 from tasks.script_task import Script
+from tasks.copy_task import Copy
 
 TEST_JOB='d:/André/coding/sensitive/main-backup-job.yaml'
 dryRun = True
