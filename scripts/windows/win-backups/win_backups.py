@@ -4,7 +4,7 @@ import yaml
 
 from tasks.script import Script
 
-TEST_JOB='d:/André/coding/git/scripts-and-configs/scripts/windows/win-backups/jobs/main.yaml'
+TEST_JOB='d:/André/coding/sensitive/main-backup-job.yaml'
 dryRun = True
 
 logger = logging.getLogger()
