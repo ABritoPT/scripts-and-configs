@@ -2,7 +2,7 @@ import logging
 import sys
 import yaml
 
-from tasks.script import Script
+from tasks.script_task import Script
 
 TEST_JOB='d:/André/coding/sensitive/main-backup-job.yaml'
 dryRun = True
