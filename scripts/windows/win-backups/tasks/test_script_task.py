@@ -12,10 +12,8 @@ def test_fake_folder():
 @pytest.fixture
 def empty_test_file():
     test_file_name = "test_script_" + str(time.time_ns())
-    test_file_path = path.abspath(path.dirname(path.realpath(__file__))
-                        + path.sep + path.pardir 
-                        + path.sep + "tests"
-                        + path.sep + test_file_name)
+    test_file_path = path.abspath(path.join(path.dirname(path.realpath(__file__)),
+                                  path.pardir ,"tests", test_file_name))
     res = subprocess.call("copy /b NUL " + test_file_path, shell=True)
     assert res==0, "setup successful"
     
