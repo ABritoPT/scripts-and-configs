@@ -2,7 +2,7 @@ import logging
 import shutil
 from os import path
 
-class CopyTask:
+class SyncTask:
     def __init__(self, name, source, destination, include=[], include_count=0, exclude=[]):
         to_list = lambda v : v if isinstance(v, list) else [v]
 
@@ -15,7 +15,7 @@ class CopyTask:
         self.exclude_list = to_list(exclude)
 
     def run(self, dryRun=True):
-        self.logger.info("Running copy task " + self.name)
+        self.logger.info("Running sync task " + self.name)
 
         task_res = 0
         for src in self.source:
