@@ -2,7 +2,7 @@ import logging
 import shutil
 from os import path
 
-class Copy:
+class CopyTask:
     def __init__(self, name, source, destination, include=[], include_count=0, exclude=[]):
         to_list = lambda v : v if isinstance(v, list) else [v]
 

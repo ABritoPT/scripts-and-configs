@@ -2,7 +2,7 @@ import logging
 import subprocess
 import os
 
-class Script:
+class ScriptTask:
     def __init__(self, name, target, start_in=None, timing=None):
         self.logger = logging.getLogger()
         self.name = name
