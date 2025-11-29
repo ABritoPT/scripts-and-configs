@@ -1,6 +1,6 @@
 import pytest
 from os import path
-from script_task import ScriptTask
+from .script_task import ScriptTask
 
 def test_fake_folder():
     sc = ScriptTask("fake folder test", "dir", "ZZZ:\\fake\\folder")

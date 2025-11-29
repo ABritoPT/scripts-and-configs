@@ -1,7 +1,7 @@
 import pytest
-from tv_show_sync_task import TVShowSyncTask
-import conftest
 from os import path
+from .tv_show_sync_task import TVShowSyncTask
+from . import conftest
 
 @pytest.fixture
 def paths_map():

@@ -1,6 +1,6 @@
-from tasks.sync_task import SyncTask
 from os import path
-import tasks.task_utils as task_utils
+from .sync_task import SyncTask
+from . import task_utils
 
 class TVShowSyncTask(SyncTask):
     def __init__(self, name: str, paths_map: dict[str,str], copies:str ='Duplicate', show_name:str = ""):

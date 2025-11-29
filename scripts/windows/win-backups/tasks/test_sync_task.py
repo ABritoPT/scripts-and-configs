@@ -2,8 +2,8 @@ import pytest
 import re
 import subprocess
 from os import path
-import conftest
-from sync_task import SyncTask
+from . import conftest
+from .sync_task import SyncTask
 
 def test_fake_source():
     dir = "ZZZ:\\fake\\folder"
