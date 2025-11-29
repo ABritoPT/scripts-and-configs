@@ -5,6 +5,7 @@ import yaml
 from tasks.script_task import ScriptTask
 from tasks.sync_task import SyncTask
 from tasks.tv_show_sync_task import TVShowSyncTask
+from tasks import task_utils
 
 TEST_JOB='d:/André/coding/sensitive/main-backup-job.yaml'
 dryRun = True
