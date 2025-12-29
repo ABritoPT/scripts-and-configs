@@ -1,20 +1,21 @@
 import logging
 import shutil
 from os import path
+from . import task_utils
 
 class SyncTask:
-    def __init__(self, name, source, destination, include=[], include_count=0, exclude=[]):
-        to_list = lambda v : v if isinstance(v, list) else [v]
-
+    def __init__(self, name: str, paths_map: dict[str,str], source: str|list[str],
+                 destination: str|list[str], include: list[str] = [], include_count: int = 0,
+                 exclude: list[str] = []):
         self.logger = logging.getLogger()
         self.name = name
-        self.source = to_list(source)
-        self.destination = to_list(destination)
-        self.include_list = to_list(include)
+        self.source = task_utils.prep_path_param(source, paths_map)
+        self.destination = task_utils.prep_path_param(destination, paths_map)
+        self.include_list = task_utils.prep_path_param(include, paths_map)
+        self.exclude_list = task_utils.prep_path_param(exclude, paths_map)
         self.include_count = include_count
-        self.exclude_list = to_list(exclude)
 
-    def run(self, dryRun=True):
+    def run(self, dryRun: bool = True):
         self.logger.info("Running sync task " + self.name)
 
         task_res = 0

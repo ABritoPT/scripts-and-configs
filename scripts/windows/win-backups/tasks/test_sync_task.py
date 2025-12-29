@@ -7,19 +7,29 @@ from .sync_task import SyncTask
 
 def test_fake_source():
     dir = "ZZZ:\\fake\\folder"
-    st = SyncTask("fake source test", dir, dir)
+    st = SyncTask("fake source test", {}, dir, dir)
     with pytest.raises(ValueError, match=re.escape("Path does not exist: " + dir)):
         st.run()
 
+def test_paths_setup():
+    dir = "$DRIVE$:\\"
+    paths_map = { 'DRIVE': 'R' }
+    st = SyncTask("test paths setup", paths_map, dir, [dir])
+    assert st.source == [ "R:\\" ]
+    assert st.destination == [ "R:\\" ]
+    assert st.exclude_list == []
+    assert st.include_list == []
+    assert st.include_count == 0
+
 def test_dry_run(empty_test_file):
     dst = empty_test_file + ".cpy"
-    st = SyncTask("dry-run test sync file", empty_test_file, dst)
+    st = SyncTask("dry-run test sync file", {}, empty_test_file, dst)
     st.run(True)
     assert path.exists(dst) == False
 
 def test_real_run(empty_test_file):
     dst = empty_test_file + ".cpy"
-    st = SyncTask("dry-run test sync file", empty_test_file, dst)
+    st = SyncTask("dry-run test sync file", {}, empty_test_file, dst)
     st.run(False)
     assert path.exists(dst) == True
     subprocess.call("del " + dst, shell=True)
@@ -27,7 +37,7 @@ def test_real_run(empty_test_file):
 def test_complex_sync(cars_directory_structure):
     src = cars_directory_structure
     dst = src + "-copy"
-    st = SyncTask("complex sync test", src, dst)
+    st = SyncTask("complex sync test", {}, src, dst)
     
     st.run(False)
     assert path.exists(path.join(dst, "subaru", "BRZ.txt")) == True

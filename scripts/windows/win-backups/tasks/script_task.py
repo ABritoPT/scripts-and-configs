@@ -1,16 +1,17 @@
 import logging
 import subprocess
 import os
+from . import task_utils
 
 class ScriptTask:
-    def __init__(self, name, target, start_in=None, timing=None):
+    def __init__(self, name: str, paths_map: dict[str,str], target: str, start_in: str|None = None, timing: str|None = None):
         self.logger = logging.getLogger()
         self.name = name
-        self.target = target
-        self.start_in = start_in
+        self.target = task_utils.resolve_placeholders(target, paths_map)
+        self.start_in = task_utils.resolve_placeholders(start_in, paths_map) if start_in else None
         self.timing = timing
     
-    def run(self, dryRun=True):
+    def run(self, dryRun: bool = True):
         self.logger.info("Running script task " + self.name)
 
         command = ""

@@ -20,4 +20,4 @@ class TVShowSyncTask(SyncTask):
                 ]
             case _:
                 raise ValueError("Copies setting not supported: " + copies)
-        super().__init__("TVShow " + name, src, dst)
+        super().__init__("TVShow " + name, paths_map, src, dst)

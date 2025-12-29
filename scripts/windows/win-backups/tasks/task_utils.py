@@ -17,3 +17,10 @@ def resolve_placeholders(str: str, paths_map: dict[str,str], placeholder: str = 
             raise KeyError("No mapping for placeholder " + m[0]) from ke
         logger.debug("Placeholder replaced: " + str)
     return str
+
+def to_list(v) -> list:
+    return v if isinstance(v, list) else [v]
+
+def prep_path_param(p: str|list[str], paths_map: dict[str,str]) -> list[str]:
+        l = to_list(p)
+        return [ resolve_placeholders(v, paths_map) for v in l ]
