@@ -5,8 +5,8 @@ from . import task_utils
 
 class SyncTask:
     def __init__(self, name: str, paths_map: dict[str,str], source: str|list[str],
-                 destination: str|list[str], include: list[str] = [], include_count: int = 0,
-                 exclude: list[str] = []):
+                 destination: str|list[str], include: str|list[str] = [], include_count: int = 0,
+                 exclude: str|list[str] = []):
         self.logger = logging.getLogger()
         self.name = name
         self.source = task_utils.prep_path_param(source, paths_map)
