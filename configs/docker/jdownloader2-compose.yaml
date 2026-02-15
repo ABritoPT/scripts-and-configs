@@ -1,0 +1,12 @@
+services:
+  jdownloader-2:
+    container_name: jdownloader2
+    image: jlesage/jdownloader-2
+    restart: unless-stopped
+    ports:
+      - 30025:5800
+    environment:
+      - TZ=Europe/Berlin
+    volumes:
+      - /mnt/.ix-apps/app_mounts/jdownloader2/config:/config:rw
+      - /mnt/Storage_2TB/main/downloads:/output:rw
