@@ -30,4 +30,4 @@ services:
       - net.ipv6.conf.all.disable_ipv6=1
     volumes:
       - /mnt/.ix-apps/app_mounts/qbittorrent/config:/config
-      - /mnt/Storage_2TB/main/downloads:/downloads
+      - /mnt/S24/main/downloads:/downloads

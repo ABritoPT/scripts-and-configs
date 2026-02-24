@@ -9,4 +9,4 @@ services:
       - TZ=Europe/Berlin
       - DAYS=2
     volumes:
-      - /mnt/Storage_2TB/main/IPTV/epg-channels.xml:/epg/channels.xml
+      - /mnt/S24/main/configs/IPTV/epg-channels.xml:/epg/channels.xml

@@ -9,6 +9,6 @@ services:
       - TZ=Europe/Berlin
     volumes:
       - /mnt/.ix-apps/app_mounts/ersatztv/config:/config
-      - /mnt/Storage_2TB/main:/media:ro
+      - /mnt/S24/main/media:/media:ro
     devices:
       - /dev/dri/renderD128:/dev/dri/renderD128
